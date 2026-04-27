@@ -1,6 +1,10 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
+    chosen {
+        zmk,keymap-sensors = &sensors;
+    };
+
     sensors {
         compatible = "zmk,keymap-sensors";
 
@@ -9,8 +13,8 @@
 
     encoder: encoder {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;   // P0.02
-        b-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;  // P1.15
+        a-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   // P0.02
+        b-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P1.15
         steps = <80>;
         status = "okay";
     };
