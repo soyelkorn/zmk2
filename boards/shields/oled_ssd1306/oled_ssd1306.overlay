@@ -1,6 +1,3 @@
-#include <dt-bindings/display/ssd1306.h>
-#include <dt-bindings/i2c/i2c.h>
-
 / {
     chosen {
         zephyr,display = &oled;
@@ -9,7 +6,7 @@
 
 &i2c0 {
     status = "okay";
-    clock-frequency = <I2C_BITRATE_FAST>;
+    clock-frequency = <400000>;
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
