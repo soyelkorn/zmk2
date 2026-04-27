@@ -1,7 +1,17 @@
-left_encoder: encoder_left {
-    compatible = "alps,ec11";
-    a-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
-    b-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
-    steps = <80>;
-    status = "okay";
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+    sensors {
+        compatible = "zmk,keymap-sensors";
+
+        sensors = <&encoder>;
+    };
+
+    encoder: encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;   // P0.02
+        b-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;  // P1.15
+        steps = <80>;
+        status = "okay";
+    };
 };
