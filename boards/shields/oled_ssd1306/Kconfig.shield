@@ -1,27 +1,2 @@
-#include <dt-bindings/display/ssd1306.h>
-#include <dt-bindings/i2c/i2c.h>
-
-/ {
-    chosen {
-        zephyr,display = &oled;
-    };
-};
-
-&i2c0 {
-    status = "okay";
-    clock-frequency = <I2C_BITRATE_FAST>;
-
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        width = <128>;
-        height = <32>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
-        segment-remap;
-        com-invdir;
-        prechargep = <0x22>;
-    };
-};
+config SHIELD_OLED_SSD1306
+    def_bool $(shields_list_contains,oled_ssd1306)
