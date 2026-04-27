@@ -17,7 +17,7 @@
 / {
 
         behaviors {
-            rgb_encoder: rgb_encoder {
+            encoder: encoder {
               compatible = "zmk,behavior-sensor-rotate";
               #sensor-binding-cells = <0>;
               bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
@@ -53,7 +53,7 @@
                      &rgb_ug RGB_TOG    &rgb_ug RGB_EFR   &rgb_ug RGB_EFF   &rgb_ug RGB_COLOR_HSB(307,89,98)   &trans
                 // ╰──────────────────┴─────────────────┴─────────────────┴──────────────────────────────────┴────────╯
               >;
-              sensor-bindings = <&rgb_encoder>;
+              sensor-bindings = <&encoder>;
             };
         };
 };
